@@ -28,9 +28,15 @@ const limiter = rateLimit({
 app.use(limiter);
 
 //mongodb database connection by mongoose
-const uri = "mongodb://127.0.0.1:27017/inventory2"; 
-const options = {user:"", pass:"", autoIndex:true};
-mongoose.connect(uri, (err)=>{
+// const uri = "mongodb://127.0.0.1:27017/inventory2"; 
+// const options = {user:"", pass:"", autoIndex:true};
+const uri="mongodb+srv://<username>:<password>@cluster0.fmftb.mongodb.net/inventory2?retryWrites=true&w=majority";
+const options = {
+    user:"crudUser",
+    pass:"cKCvJBxPceRvqkmp",
+    autoIndex:true,
+};
+mongoose.connect(uri,options, (err)=>{
     if(err){
         console.log("Database connetion fail")
     }
